@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+
+
         function getComputerChoice() {
             let  randomNum;
             randomNum= Math.floor(Math.random()*10);
@@ -22,16 +24,76 @@
 
         }
 
+
+
+
         function getHumanChoice() {
-            let humanChoice=prompt("Enter Your choice");
+            let humanChoice=prompt("Enter Rock/Paper/Scissor:");
             return humanChoice.toLowerCase();
 
         }
 
+
+
+
         let humanScore= 0;
         let computerScore= 0;
+
+
         function playRound(humanChoice, computerChoice) {
-            // your code here!
+            humanChoice=getHumanChoice();
+            computerChoice=getComputerChoice();
+            
+            if (humanChoice==='rock') {
+                if (computerChoice === 'rock') {
+                    console.log("You tied");
+   
+                }
+                else if (computerChoice === 'paper') {
+                    console.log("You lose! Paper beats rock");
+                    computerScore++;
+                }
+                else if(computerChoice === 'scissor') {
+                    console.log("You win! Rock beats scissor");
+                    humanScore++;
+                }
+                
+            } 
+            
+            
+            else if (humanChoice === 'paper') {
+                if (computerChoice === 'rock') {
+                    console.log("You win! Paper beats rock");
+                    humanScore++;
+   
+                }
+                else if (computerChoice === 'paper') {
+                    console.log("You tied");
+                    
+                }
+                else if(computerChoice === 'scissor') {
+                    console.log("You lose! Scissor beats paper");
+                    computerScore++;
+                
+            }
+
+
+            else if (humanChoice === 'scissor') {
+                if (computerChoice === 'rock') {
+                    console.log("You lose! Rock beats scissor");
+                    computerScore++;
+   
+                }
+                else if (computerChoice === 'paper') {
+                    console.log("You win! Scissor beats paper");
+                    humanScore++;
+                    
+                }
+                else if(computerChoice === 'scissor') {
+                    console.log("You tied");
+                
+            }
+            
         }   
 
         const humanSelection = getHumanChoice();
