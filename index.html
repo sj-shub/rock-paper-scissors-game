@@ -7,7 +7,38 @@
 </head>
 <body>
     <script>
+        function getComputerChoice() {
+            let  randomNum;
+            randomNum= Math.floor(Math.random()*10);
+            if (randomNum>=0 && randomNum<4) {
+                return "rock";
+            } else if (randomNum>=4 && randomNum<7) {
+                return "paper";   
+            }
+            else {
+                return "scissor";
+            }
+
+
+        }
+
+        function getHumanChoice() {
+
+        }
+
+        let humanScore= 0;
+        let computerScore= 0;
+        function playRound(humanChoice, computerChoice) {
+            // your code here!
+        }   
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
         
+
     </script>
 </body>
 </html>
