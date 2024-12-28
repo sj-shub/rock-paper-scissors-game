@@ -6,8 +6,28 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Rock Paper Scissor Game</h1>
+    <br><br>
+    <div>
+        <h3>Click on Your Choice</h3><br><br>
+        <button id="rock">rock</button>
+        <button id="paper">paper</button>
+        <button id="scissor">scissor</button>
+        <div class="result"></div>
+    </div>
     <script>
 
+       
+        let result=document.querySelector(".result");   
+        const buttons=document.querySelectorAll("button");
+        buttons.forEach((button)=>{
+            button.addEventListener("click", () => {
+            const computerChoice = getComputerChoice();
+            playRound(button.textContent, computerChoice);
+        });
+            
+        });
+   
 
         function getComputerChoice() {
             let  randomNum;
@@ -23,28 +43,12 @@
 
 
         }
-
-
-
-
-        function getHumanChoice() {
-            let humanChoice=prompt("Enter Rock/Paper/Scissor:");
-            return humanChoice.toLowerCase();
-
-        }
-
-
-
-
-        
-        function playGame() {
             let humanScore= 0;
             let computerScore= 0;
 
 
             function playRound(humanChoice, computerChoice) {
-                humanChoice=getHumanChoice();
-                computerChoice=getComputerChoice();
+                
                 
                 if (humanChoice==='rock') {
                     if (computerChoice === 'rock') {
@@ -97,36 +101,9 @@
                     
                         }
                 }
+                result.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
 
             }   
-
-
-                const humanSelection = getHumanChoice();
-                const computerSelection = getComputerChoice();
-                for (let i = 0; i < 5; i++) {
-                    playRound(humanSelection, computerSelection);
-
-                    }
-
-                if(humanScore>computerScore) {
-                    console.log("You won the game!");
-                    console.log("Your Score:"+humanScore);
-                    console.log("Computer's score:"+computerScore);
-                }
-                else if(humanScore<computerScore) {
-                    console.log("You lost the game!");
-                    console.log("Your Score:"+humanScore);
-                    console.log("Computer's score:"+computerScore);
-                }
-
-                else {
-                    console.log("Game tied!");
-                    console.log("Your Score:"+humanScore);
-                    console.log("Computer's score:"+computerScore);
-                }
-                }
-
-            
 
             
 
